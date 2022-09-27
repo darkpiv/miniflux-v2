@@ -180,7 +180,7 @@
     "page.login.google_signin": "Συνδεθείτε με τo Google",
     "page.login.oidc_signin": "Συνδεθείτε με το OpenID Connect",
     "page.integrations.title": "Ενσωμάτωση",
-    "page.integration.miniflux_api": "Miniflux API",
+    "page.integration.miniflux_api": "Heyyou API",
     "page.integration.miniflux_api_endpoint": "Τελικό σημείο API",
     "page.integration.miniflux_api_username": "Χρήστης",
     "page.integration.miniflux_api_password": "Κωδικός",

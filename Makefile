@@ -5,7 +5,7 @@ COMMIT       := $(shell git rev-parse --short HEAD)
 BUILD_DATE   := `date +%FT%T%z`
 LD_FLAGS     := "-s -w -X 'miniflux.app/version.Version=$(VERSION)' -X 'miniflux.app/version.Commit=$(COMMIT)' -X 'miniflux.app/version.BuildDate=$(BUILD_DATE)'"
 PKG_LIST     := $(shell go list ./... | grep -v /vendor/)
-DB_URL       := postgres://postgres:postgres@localhost/miniflux_test?sslmode=disable
+DB_URL       := postgres://postgres:admin@localhost/miniflux_test?sslmode=disable
 DEB_IMG_ARCH := amd64
 
 export PGPASSWORD := postgres
@@ -97,7 +97,7 @@ windows-x86:
 	@ GOOS=windows GOARCH=386 go build -ldflags=$(LD_FLAGS) -o $(APP)-windows-x86 main.go
 
 run:
-	@ LOG_DATE_TIME=1 DEBUG=1 RUN_MIGRATIONS=1 go run main.go
+	@ ADMIN_USERNAME=admin ADMIN_PASSWORD=111111 CREATE_ADMIN=1 DATABASE_URL=postgres://postgres:admin@localhost:5432?sslmode=disable LOG_DATE_TIME=1 DEBUG=1 RUN_MIGRATIONS=1 go run main.go
 
 clean:
 	@ rm -f $(APP)-* $(APP) $(APP)*.rpm $(APP)*.deb
@@ -114,8 +114,8 @@ integration-test:
 	go build -o miniflux-test main.go
 
 	DATABASE_URL=$(DB_URL) \
-	ADMIN_USERNAME=admin \
-	ADMIN_PASSWORD=test123 \
+	ADMIN_USERNAME=postgres \
+	ADMIN_PASSWORD=admin \
 	CREATE_ADMIN=1 \
 	RUN_MIGRATIONS=1 \
 	DEBUG=1 \

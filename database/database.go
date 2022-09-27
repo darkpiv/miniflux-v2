@@ -2,11 +2,12 @@
 // Use of this source code is governed by the Apache 2.0
 // license that can be found in the LICENSE file.
 
-package database // import "miniflux.app/database"
+package database // Package database import "miniflux.app/database"
 
 import (
 	"database/sql"
 	"fmt"
+	"log"
 	"time"
 
 	// Postgresql driver import
@@ -70,7 +71,11 @@ func Migrate(db *sql.DB) error {
 // IsSchemaUpToDate checks if the database schema is up to date.
 func IsSchemaUpToDate(db *sql.DB) error {
 	var currentVersion int
-	db.QueryRow(`SELECT version FROM schema_version`).Scan(&currentVersion)
+	err := db.QueryRow(`SELECT version FROM schema_version`).Scan(&currentVersion)
+	if err != nil {
+		log.Fatalf(`error when doing migration: error=%s`, err.Error())
+		return err
+	}
 	if currentVersion < schemaVersion {
 		return fmt.Errorf(`the database schema is not up to date: current=v%d expected=v%d`, currentVersion, schemaVersion)
 	}

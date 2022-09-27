@@ -3,31 +3,30 @@
 <html lang="{{ replace .language "_" "-"}}">
 <head>
     <meta charset="utf-8">
-    <title>{{template "title" .}} - Miniflux</title>
+    <title>{{template "title" .}} - Heyyou</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Miniflux">
+    <meta name="apple-mobile-web-app-title" content="Heyyou">
     <link rel="manifest" href="{{ route "webManifest" }}" crossorigin="use-credentials"/>
+    <meta name="msapplication-TileColor" content="#da532c">
 
     <meta name="robots" content="noindex,nofollow">
     <meta name="referrer" content="no-referrer">
     <meta name="google" content="notranslate">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ route "appIcon" "filename" "favicon-16.png" }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ route "appIcon" "filename" "favicon-32.png" }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ route "appIcon" "filename" "favicon-16x16.png" }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ route "appIcon" "filename" "favicon-32x32.png" }}">
 
     <!-- Android icons -->
-    <link rel="icon" type="image/png" sizes="128x128" href="{{ route "appIcon" "filename" "icon-128.png" }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ route "appIcon" "filename" "icon-192.png" }}">
+    <link rel="icon" type="image/png" sizes="128x128" href="{{ route "appIcon" "filename" "android-chrome-192x192.png" }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ route "appIcon" "filename" "android-chrome-192x192.png" }}">
 
     <!-- iOS icons -->
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ route "appIcon" "filename" "icon-120.png" }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ route "appIcon" "filename" "icon-152.png" }}">
-    <link rel="apple-touch-icon" sizes="167x167" href="{{ route "appIcon" "filename" "icon-167.png" }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ route "appIcon" "filename" "icon-180.png" }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ route "appIcon" "filename" "apple-touch-icon.png" }}">
+
 
     <meta name="theme-color" content="{{ theme_color .theme "light" }}" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="{{ theme_color .theme "dark" }}" media="(prefers-color-scheme: dark)">
@@ -56,7 +55,7 @@
     <header class="header">
         <nav>
             <div class="logo">
-                <a href="{{ route .user.DefaultHomePage }}">Mini<span>flux</span></a>
+                <a href="{{ route .user.DefaultHomePage }}">Hey<span>you</span></a>
             </div>
             <ul>
                 <li {{ if eq .menu "unread" }}class="active"{{ end }} title="{{ t "tooltip.keyboard_shortcuts" "g u" }}">

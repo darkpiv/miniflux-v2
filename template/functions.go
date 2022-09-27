@@ -93,7 +93,7 @@ func (f *funcMap) Map() template.FuncMap {
 		"icon": func(iconName string) template.HTML {
 			return template.HTML(fmt.Sprintf(
 				`<svg class="icon" aria-hidden="true"><use xlink:href="%s#icon-%s"/></svg>`,
-				route.Path(f.router, "appIcon", "filename", "sprite.svg"),
+				route.Path(f.router, "appIcon", "filename", "icon.svg"),
 				iconName,
 			))
 		},

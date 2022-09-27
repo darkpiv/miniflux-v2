@@ -72,7 +72,7 @@ const (
 	defaultInvidiousInstance                  = "yewtu.be"
 )
 
-var defaultHTTPClientUserAgent = "Mozilla/5.0 (compatible; Miniflux/" + version.Version + "; +https://miniflux.app)"
+var defaultHTTPClientUserAgent = "Mozilla/5.0 (compatible; Heyyou/" + version.Version + "; +https://hey-you.fly.dev)"
 
 // Option contains a key to value map of a single option. It may be used to output debug strings.
 type Option struct {

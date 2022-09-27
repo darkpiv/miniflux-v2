@@ -55,17 +55,17 @@ func (h *handler) showWebManifest(w http.ResponseWriter, r *http.Request) {
 	}
 	themeColor := model.ThemeColor(request.UserTheme(r), "light")
 	manifest := &webManifest{
-		Name:            "Miniflux",
-		ShortName:       "Miniflux",
+		Name:            "Heyyou",
+		ShortName:       "Heyyou",
 		Description:     "Minimalist Feed Reader",
 		Display:         displayMode,
 		StartURL:        route.Path(h.router, "unread"),
 		ThemeColor:      themeColor,
 		BackgroundColor: themeColor,
 		Icons: []webManifestIcon{
-			{Source: route.Path(h.router, "appIcon", "filename", "icon-120.png"), Sizes: "120x120", Type: "image/png"},
-			{Source: route.Path(h.router, "appIcon", "filename", "icon-192.png"), Sizes: "192x192", Type: "image/png"},
-			{Source: route.Path(h.router, "appIcon", "filename", "icon-512.png"), Sizes: "512x512", Type: "image/png"},
+			{Source: route.Path(h.router, "appIcon", "filename", "mstile-150x150.png"), Sizes: "120x120", Type: "image/png"},
+			{Source: route.Path(h.router, "appIcon", "filename", "android-chrome-192x192.png"), Sizes: "192x192", Type: "image/png"},
+			{Source: route.Path(h.router, "appIcon", "filename", "android-chrome-512x512.png"), Sizes: "512x512", Type: "image/png"},
 		},
 		ShareTarget: webManifestShareTarget{
 			Action:  route.Path(h.router, "bookmarklet"),

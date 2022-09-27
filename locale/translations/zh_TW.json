@@ -180,7 +180,7 @@
     "page.login.google_signin": "使用 Google 登入",
     "page.login.oidc_signin": "使用 OpenID Connect 登入",
     "page.integrations.title": "整合",
-    "page.integration.miniflux_api": "Miniflux API",
+    "page.integration.miniflux_api": "Heyyou API",
     "page.integration.miniflux_api_endpoint": "API Endpoint",
     "page.integration.miniflux_api_username": "使用者名稱",
     "page.integration.miniflux_api_password": "密碼",

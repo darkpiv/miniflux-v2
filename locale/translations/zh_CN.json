@@ -178,7 +178,7 @@
     "page.login.google_signin": "使用 Google 登录",
     "page.login.oidc_signin": "使用 OpenID Connect 登录",
     "page.integrations.title": "集成",
-    "page.integration.miniflux_api": "Miniflux API",
+    "page.integration.miniflux_api": "Heyyou API",
     "page.integration.miniflux_api_endpoint": "API Endpoint",
     "page.integration.miniflux_api_username": "用户名",
     "page.integration.miniflux_api_password": "密码",
