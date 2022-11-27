@@ -4,3 +4,4 @@ miniflux
 *.deb
 .idea
 ui/static/.DS_Store
+node_modules

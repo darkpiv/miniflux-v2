@@ -236,6 +236,18 @@
             <button type="submit" class="button button-primary" data-label-loading="{{ t "form.submit.saving" }}">{{ t "action.update" }}</button>
         </div>
     </div>
+    <h3>Raindrop</h3>
+    <div class="form-section">
+        <label>
+            <input type="checkbox" name="raindrop_enabled" value="1" {{ if .form.RaindropEnabled }}checked{{ end }}> {{ t "form.integration.raindrop_enabled" }}
+        </label>
+        <label for="form-raindrop-api-access-token">{{ t "form.integration.raindrop-api-key" }}</label>
+        <input type="text" name="raindrop_api_access_token" id="form-raindrop-api-access-token" value="{{ .form.RaindropAPIAccessToken }}" placeholder="Your api access token" spellcheck="false">
+
+        <div class="buttons">
+            <button type="submit" class="button button-primary" data-label-loading="{{ t "form.submit.saving" }}">{{ t "action.update" }}</button>
+        </div>
+    </div>
 
 </form>
 

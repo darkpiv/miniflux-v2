@@ -68,6 +68,9 @@ func (h *handler) showIntegrationPage(w http.ResponseWriter, r *http.Request) {
 		MatrixBotPassword:    integration.MatrixBotPassword,
 		MatrixBotURL:         integration.MatrixBotURL,
 		MatrixBotChatID:      integration.MatrixBotChatID,
+
+		RaindropEnabled:        integration.RaindropEnabled,
+		RaindropAPIAccessToken: integration.RaindropAPIAccessToken,
 	}
 
 	sess := session.New(h.store, request.SessionID(r))

@@ -13,6 +13,7 @@ import (
 	"miniflux.app/integration/nunuxkeeper"
 	"miniflux.app/integration/pinboard"
 	"miniflux.app/integration/pocket"
+	"miniflux.app/integration/raindrop"
 	"miniflux.app/integration/telegrambot"
 	"miniflux.app/integration/wallabag"
 	"miniflux.app/logger"
@@ -109,6 +110,15 @@ func SendEntry(entry *model.Entry, integration *model.Integration) {
 			logger.Error("[Integration] UserID #%d: %v", integration.UserID, err)
 		}
 	}
+	if integration.RaindropEnabled {
+		logger.Debug("[Integration] Sending Entry #%d %q for User #%d to Raindrop", entry.ID, entry.URL, integration.UserID)
+
+		if err := raindrop.PushEntry(entry, integration.RaindropAPIAccessToken); err != nil {
+			logger.Error("[Integration] UserID #%d: %v", integration.UserID, err)
+		}
+
+	}
+	return
 }
 
 // PushEntries pushes an entry array to third-party providers during feed refreshes.

@@ -356,6 +356,8 @@
     "form.integration.linkding_endpoint": "Linkding API Endpoint",
     "form.integration.linkding_api_key": "Linkding API key",
     "form.integration.matrix_bot_activate": "Push new entries to Matrix",
+    "form.integration.raindrop_enabled": "Push new entries to Raindrop",
+    "form.integration.raindrop-api-key": "Raindrop API access token",
     "form.integration.matrix_bot_user": "Username for Matrix",
     "form.integration.matrix_bot_password": "Password for Matrix user",
     "form.integration.matrix_bot_url": "Matrix server URL",

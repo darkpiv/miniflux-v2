@@ -633,4 +633,18 @@ var migrations = []func(tx *sql.Tx) error{
 		_, err = tx.Exec(sql)
 		return
 	},
+	func(tx *sql.Tx) (err error) {
+		sql := `
+		ALTER TABLE integrations ADD COLUMN raindrop_enabled bool default 'f';
+		`
+		_, err = tx.Exec(sql)
+		return
+	},
+	func(tx *sql.Tx) (err error) {
+		sql := `
+		ALTER TABLE integrations ADD COLUMN raindrop_access_token text default 't';
+		`
+		_, err = tx.Exec(sql)
+		return
+	},
 }

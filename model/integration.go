@@ -48,4 +48,7 @@ type Integration struct {
 	MatrixBotPassword    string
 	MatrixBotURL         string
 	MatrixBotChatID      string
+	RaindropEnabled      bool
+	
+	RaindropAPIAccessToken string
 }
