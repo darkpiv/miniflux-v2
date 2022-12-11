@@ -167,6 +167,6 @@ debian-packages: clean
 	$(MAKE) debian DEB_IMG_ARCH=arm32v7
 
 restart-prod:
-	flyctl apps restart hey-you
 	fly pg restart -a hey-you-db
-	fly pg restart -a hey-you
+	sleep 30
+	flyctl apps restart hey-you

@@ -24,6 +24,16 @@
                 data-label-no="{{ t "confirm.no" }}"
                 data-label-loading="{{ t "confirm.loading" }}">{{ icon "mark-all-as-read" }}{{ t "menu.mark_all_as_read" }}</a>
         </li>
+        <li>
+            <a href="#"
+               data-confirm="true"
+               data-url="{{ route "feedCleanup" }}"
+               data-redirect-url="{{ route "unread" }}"
+               data-label-question="{{ t "confirm.question" }}"
+               data-label-yes="{{ t "confirm.yes" }}"
+               data-label-no="{{ t "confirm.no" }}"
+               data-label-loading="{{ t "confirm.loading" }}">{{ icon "mark-page-as-read" }}{{ t "menu.cleanup_feed" }}</a>
+        </li>
     </ul>
     {{ end }}
 </section>

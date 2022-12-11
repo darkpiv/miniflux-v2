@@ -72,6 +72,15 @@ func (h *handler) refreshAllFeeds(w http.ResponseWriter, r *http.Request) {
 	json.NoContent(w, r)
 }
 
+func (h *handler) cleanupFeed(w http.ResponseWriter, r *http.Request) {
+	userID := request.UserID(r)
+	err := h.store.CleanupFeed(userID)
+	if err != nil {
+		json.ServerError(w, r, err)
+	}
+	json.NoContent(w, r)
+}
+
 func (h *handler) updateFeed(w http.ResponseWriter, r *http.Request) {
 	var feedModificationRequest model.FeedModificationRequest
 	if err := json_parser.NewDecoder(r.Body).Decode(&feedModificationRequest); err != nil {

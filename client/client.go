@@ -353,6 +353,12 @@ func (c *Client) RefreshAllFeeds() error {
 	return err
 }
 
+// CleanupFeed cleans all feeds.
+func (c *Client) CleanupFeed() error {
+	_, err := c.request.Put("/v1/feeds-cleanup", nil)
+	return err
+}
+
 // RefreshFeed refreshes a feed.
 func (c *Client) RefreshFeed(feedID int64) error {
 	_, err := c.request.Put(fmt.Sprintf("/v1/feeds/%d/refresh", feedID), nil)

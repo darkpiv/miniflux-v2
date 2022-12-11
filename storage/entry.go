@@ -240,6 +240,23 @@ func (s *Storage) GetReadTime(entry *model.Entry, feed *model.Feed) int {
 	return result
 }
 
+// CleanupFeed deletes from the database since 30 days older
+func (s *Storage) CleanupFeed(userID int64) error {
+	query := `
+		DELETE FROM
+			entries
+		WHERE
+			user_id=$1
+		AND
+			published_at < now() - interval '30 days' or created_at < now() - interval '30 days'
+	`
+	if _, err := s.db.Exec(query, userID); err != nil {
+		return fmt.Errorf(`store: unable to cleanupFeed: %v`, err)
+	}
+
+	return nil
+}
+
 // cleanupEntries deletes from the database entries marked as "removed" and not visible anymore in the feed.
 func (s *Storage) cleanupEntries(feedID int64, entryHashes []string) error {
 	query := `
