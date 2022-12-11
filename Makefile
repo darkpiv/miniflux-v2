@@ -97,7 +97,7 @@ windows-x86:
 	@ GOOS=windows GOARCH=386 go build -ldflags=$(LD_FLAGS) -o $(APP)-$@ main.go
 
 run:
-	@ ADMIN_USERNAME=admin ADMIN_PASSWORD=111111 CREATE_ADMIN=1 DATABASE_URL=postgres://postgres:admin@localhost:5432?sslmode=disable LOG_DATE_TIME=1 DEBUG=1 RUN_MIGRATIONS=1 go run main.go
+	@ ADMIN_USERNAME=admin ADMIN_PASSWORD=111111 CREATE_ADMIN=1 DATABASE_URL=${DB_URL} LOG_DATE_TIME=1 DEBUG=1 RUN_MIGRATIONS=1 go run main.go
 
 clean:
 	@ rm -f $(APP)-* $(APP) $(APP)*.rpm $(APP)*.deb
@@ -165,3 +165,8 @@ debian-packages: clean
 	$(MAKE) debian DEB_IMG_ARCH=amd64
 	$(MAKE) debian DEB_IMG_ARCH=arm64v8
 	$(MAKE) debian DEB_IMG_ARCH=arm32v7
+
+restart-prod:
+	flyctl apps restart hey-you
+	fly pg restart -a hey-you-db
+	fly pg restart -a hey-you
