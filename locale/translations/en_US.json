@@ -38,6 +38,7 @@
     "menu.show_only_unread_entries": "Show only unread entries",
     "menu.refresh_feed": "Refresh",
     "menu.refresh_all_feeds": "Refresh all feeds in the background",
+    "menu.cleanup_feed": "Delete old feeds (30 days)",
     "menu.edit_feed": "Edit",
     "menu.edit_category": "Edit",
     "menu.add_feed": "Add feed",
